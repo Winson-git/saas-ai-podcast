@@ -80,7 +80,7 @@ const CreatePodcast = () => {
               name="podcastTitle"
               render={({ field }) => (
                 <FormItem className="flex flex-col gap-2.5">
-                  <FormLabel className="text-16 font-bold text-white-1">Username</FormLabel>
+                  <FormLabel className="text-16 font-bold text-white-1">Podcast Title</FormLabel>
                   <FormControl>
                     <Input className="input-class focus-visible:ring-offset-orange-1" placeholder="My Podcast" {...field} />
                   </FormControl>
@@ -96,7 +96,7 @@ const CreatePodcast = () => {
                 <SelectTrigger className={cn('text-16 w-full border-none bg-black-1 text-gray-1')}>
                   <SelectValue placeholder="Select AI Voice" className="placeholder:text-gray-1"/>
                 </SelectTrigger>
-                <SelectContent className="text-16 border-none bg-black-1 font-bold text-white-1 focus:ring-orange-1">
+                <SelectContent className="text-16 border-none bg-black-1 font-bold text-white-1 focus:ring-offset-orange-1">
                   {voiceCategories.map((category) => (
                     <SelectItem className=" capitalize focus:bg-orange-1" key={category} value={category}>
                       {category}
@@ -123,12 +123,26 @@ const CreatePodcast = () => {
             />
           </div>
           <div className="flex flex-col pt-10">
-              <GeneratePodcast />
+              <GeneratePodcast 
+                 setAudioStorageId={setAudioStorageId}
+                 setAudio={setAudioUrl}
+                 voiceType={voiceType!}
+                 audio={audioUrl}
+                 voicePrompt={voicePrompt}
+                 setVoicePrompt={setVoicePrompt}
+                 setAudioDuration={setAudioDuration}
+              />
 
-              <GenerateThumbnail />
+              <GenerateThumbnail 
+                setImage={setImageUrl}
+                setImageStorageId={setImageStorageId}
+                image={imageUrl}
+                imagePrompt={imagePrompt}
+                setImagePrompt={setImagePrompt}
+              />
 
               <div className="mt-10 w-full">
-                <Button className="text-16 w-full bg-orange-1 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1" type="submit">
+                <Button className="text-16 w-full bg-orange-1 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1" type="submit">
                   {isSubmitting ?(
                     <>
                       Submitting
