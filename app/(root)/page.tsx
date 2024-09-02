@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import PodcastCard from '@/components/PodcastCard'
 import React from 'react'

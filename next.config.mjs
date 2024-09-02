@@ -9,7 +9,11 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'fast-manatee-464.convex.cloud'
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'img.clerk.com'
+            },
         ]
     }
 };
